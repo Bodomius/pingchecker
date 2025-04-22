@@ -12,7 +12,7 @@ read -p "Введите название сервера (например, 🇯�
 # Замена placeholder'ов в скачанном скрипте
 sed -i "s/YOUR_BOT_TOKEN/$bot_token/" /root/check_current_ip.sh
 sed -i "s/YOUR_CHAT_ID/$chat_id/" /root/check_current_ip.sh
-sed -i "s/SERVERNAME/$servername/" /root/check_current_ip.sh
+sed -i "s/SERVER_NAME/$servername/" /root/check_current_ip.sh
 
 # Делаем скрипт исполняемым
 chmod +x /root/check_current_ip.sh
