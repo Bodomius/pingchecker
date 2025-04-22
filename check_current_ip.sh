@@ -3,7 +3,7 @@
 # === НАСТРОЙКИ ===
 BOT_TOKEN="YOUR_BOT_TOKEN"
 CHAT_ID="YOUR_CHAT_ID"
-SERVER_NAME="SERVERNAME"
+SERVERNAME="SERVER_NAME"
 API_URL="https://api.telegram.org/bot$BOT_TOKEN/sendMessage"
 PING_CMD="/bin/ping"
 LOG_FILE="/tmp/ping_debug.log"
