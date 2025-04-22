@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 declare -a ips=("13.225.164.218" "13.227.61.59" "143.204.127.42" "13.35.51.41" "99.84.58.138" "18.65.193.131" "18.65.176.132" "99.84.140.147" "13.225.173.96" "54.240.188.143" "13.35.55.41" "18.65.207.131" "143.204.79.125" "65.9.40.137" "99.84.137.147" "18.65.212.131")
 
@@ -14,7 +14,6 @@ function progress_bar {
     printf "\rPing: [%${filled}s>%-${empty}s] %3d/%d" "" "" $current $total
 }
 
-# Пингуем IP
 for i in "${!ips[@]}"; do
     result=$(ping -c 1 -W 1 "${ips[$i]}" | grep 'time=' | awk -F'time=' '{print $2}' | awk '{print $1}')
     results["${ips[$i]}"]=$result
@@ -39,7 +38,6 @@ for i in "${!sorted_list[@]}"; do
     printf "%2d | %-19s | %s\n" $((i+1)) "$ip" "${time:-timeout}"
 done
 
-# Ручной выбор IP
 echo -e "\nВыберите IP-адрес, который будет прописан в /etc/hosts для api и fapi:"
 read -rp "#? " selection
 
@@ -50,7 +48,6 @@ fi
 
 selected_ip=$(echo "${sorted_list[$((selection - 1))]}" | cut -d'|' -f1)
 
-# Обновление /etc/hosts
 sudo sed -i '/api\.binance\.com/d' /etc/hosts
 sudo sed -i '/fapi\.binance\.com/d' /etc/hosts
 
