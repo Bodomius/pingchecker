@@ -3,7 +3,7 @@
 # === НАСТРОЙКИ ===
 BOT_TOKEN="YOUR_BOT_TOKEN"
 CHAT_ID="YOUR_CHAT_ID"
-SERVER_NAME="SERVER_NAME"
+SERVERNAME="SERVER_NAME"
 API_URL="https://api.telegram.org/bot$BOT_TOKEN/sendMessage"
 PING_CMD="/bin/ping"
 LOG_FILE="/tmp/ping_debug.log"
@@ -51,7 +51,7 @@ for ip in "${ips[@]}"; do
         echo "$ip fapi.binance.com" >> /etc/hosts
 
         # Уведомление в Telegram
-        message="⚠️ $SERVER_NAME ⚠️
+        message="⚠️ $SERVERNAME ⚠️
 
 🔁 API\FAPI \`$current_ip\` недоступен
 
@@ -71,7 +71,7 @@ done
 echo "❌ Ни один IP не ответил." >> "$LOG_FILE"
 curl -s -X POST "$API_URL" \
      -d chat_id="$CHAT_ID" \
-     -d text=" ❌ $SERVER_NAME ❌
+     -d text=" ❌ $SERVERNAME ❌
 Нет доступных IP-адресов для замены api.binance.com. Требуется ручное вмешательство."
 
 exit 1
