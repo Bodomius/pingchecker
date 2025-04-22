@@ -7,12 +7,12 @@ curl -o /root/check_current_ip.sh https://raw.githubusercontent.com/Bodomius/pin
 # Запрос данных у пользователя
 read -p "Введите токен бота Telegram: " bot_token
 read -p "Введите Chat ID: " chat_id
-read -p "Введите название сервера (например, 🇯🇵 SHOCKHOSTING 🇯🇵): " server_name
+read -p "Введите название сервера (например, 🇯🇵 SHOCKHOSTING 🇯🇵): " servername
 
 # Замена placeholder'ов в скачанном скрипте
 sed -i "s/YOUR_BOT_TOKEN/$bot_token/" /root/check_current_ip.sh
 sed -i "s/YOUR_CHAT_ID/$chat_id/" /root/check_current_ip.sh
-sed -i "s/SERVER_NAME/$server_name/" /root/check_current_ip.sh
+sed -i "s/SERVER_NAME/$servername/" /root/check_current_ip.sh
 
 # Делаем скрипт исполняемым
 chmod +x /root/check_current_ip.sh
